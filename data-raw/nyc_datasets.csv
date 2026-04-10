@@ -1,0 +1,16 @@
+id,dataset_name,url,name_col,name_alt,source_type
+cd,Community Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/community-districts/nycd_25a.zip,BoroCD,,dcp_zip
+pp,Police Precincts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/police-precincts/nypp_25a.zip,Precinct,,dcp_zip
+dsny,Sanitation Districts,https://data.cityofnewyork.us/api/geospatial/i6mn-amj2?method=export&format=Shapefile,district,districtco,opendata_shapefile
+fb,Fire Battalions,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/fire-battalions/nyfb_25a.zip,FireBN,,dcp_zip
+sd,School Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/school/nysd_25a.zip,SchoolDist,,dcp_zip
+hc,Health Center Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/health-center/nyhc_25a.zip,HCentDist,,dcp_zip
+cc,City Council Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/city-council/nycc_25a.zip,CounDist,,dcp_zip
+nycongress,Congressional Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/congressional/nycg_25a.zip,CongDist,,dcp_zip
+sa,State Assembly Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/state-assembly/nyad_25a.zip,AssemDist,,dcp_zip
+ss,State Senate Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/state-senate/nyss_25a.zip,StSenDist,,dcp_zip
+bid,Business Improvement Districts,https://data.cityofnewyork.us/resource/7jdm-inj8.geojson,f_all_bids,,opendata_geojson
+nta,Neighborhood Tabulation Areas,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/neighborhood-tabulation-areas/nynta2020_25a.zip,NTAName,NTA2020,dcp_zip
+zipcode,Modified ZIP Code Tabulation Areas,https://data.cityofnewyork.us/api/geospatial/pri4-ifjk?method=export&format=Shapefile,modzcta,,opendata_shapefile
+hd,Historic Districts,https://data.cityofnewyork.us/resource/skyk-mpzq.geojson,area_name,,opendata_geojson
+ibz,Industrial Business Zones,https://edc.nyc/sites/default/files/2020-10/IBZ%20Shapefiles.zip,NAME,,edc_zip

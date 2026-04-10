@@ -1,0 +1,41 @@
+url: https://kjhealy.github.io/nycbuildxwalks/
+template:
+  bootstrap: 5
+  bslib:
+    base_font:
+      google: IBM Plex Sans
+    heading_font:
+      google: IBM Plex Sans
+    code_font:
+      google: IBM Plex Mono
+
+reference:
+- title: Data
+  desc: Bundled dataset definitions
+  contents:
+  - nyc_datasets
+
+- title: Pipeline
+  desc: Run the full crosswalk generation pipeline
+  contents:
+  - make_run
+
+- title: Boundary download
+  desc: Download and process NYC geographic boundaries
+  contents:
+  - download_all_boundaries
+  - process_dataset
+  - resolve_dcp_cycle
+
+- title: Crosswalk building
+  desc: Build crosswalk tables from boundary data
+  contents:
+  - build_crosswalks
+  - build_longform_for_primary
+  - build_wide_for_primary
+
+- title: Spatial helpers
+  desc: Low-level spatial operations
+  contents:
+  - dissolve_by_name
+  - union_by_name

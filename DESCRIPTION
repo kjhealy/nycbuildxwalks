@@ -1,0 +1,43 @@
+Package: nycbuildxwalks
+Title: Build Geographic Crosswalk Tables for New York City Boundaries
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Kieran", "Healy", , "kjhealy@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0001-9114-981X")),
+    person("Nathan", "Storey", role = "aut",
+           comment = "Author of the original Python implementation")
+    )
+Description: Downloads official New York City geographic boundary data from
+    NYC Open Data, the Department of City Planning, and other sources, then
+    generates comprehensive crosswalk tables showing how administrative and
+    spatial boundaries overlap. Produces wide-format and long-format CSV
+    crosswalks with intersection area and percentage calculations. Based on
+    the Python tool by Nathan Storey at MODA-NYC
+    (<https://github.com/MODA-NYC/nyc-geography-crosswalks>), which builds
+    on earlier work by BetaNYC (<https://github.com/BetaNYC/nyc-boundaries>).
+License: MIT + file LICENSE
+URL: https://kjhealy.github.io/nycbuildxwalks/,
+    https://github.com/kjhealy/nycbuildxwalks
+BugReports: https://github.com/kjhealy/nycbuildxwalks/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends:
+    R (>= 4.1.0)
+Imports:
+    cli,
+    dplyr,
+    httr2,
+    jsonlite,
+    purrr,
+    readr,
+    rlang,
+    sf,
+    stringr,
+    withr
+Suggests:
+    testthat (>= 3.0.0),
+    tibble
+Config/testthat/edition: 3
+LazyData: true
+LazyDataCompression: xz
