@@ -5,3 +5,4 @@
 ^\.Rproj\.user$
 ^NEWS\.md$
 ^.DS_Store$
+^\.github$

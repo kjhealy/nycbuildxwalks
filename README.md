@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/kjhealy/nycbuildxwalks/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kjhealy/nycbuildxwalks/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 nycbuildxwalks downloads official New York City geographic boundary data
