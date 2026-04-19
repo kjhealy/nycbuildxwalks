@@ -41,6 +41,19 @@ with:
 pak::pak("kjhealy/nycbuildxwalks")
 ```
 
+Alternatively, install this package from my
+[r-universe](https://kjhealy.r-universe.dev):
+
+``` r
+install.packages(
+  "nycbuildxwalks",
+  repos = c("https://kjhealy.r-universe.dev", "https://cloud.r-project.org")
+)
+```
+
+Including `https://cloud.r-project.org` ensures dependencies on CRAN are
+resolved automatically.
+
 ## Usage
 
 The main entry point is
