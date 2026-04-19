@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/kjhealy/nycbuildxwalks/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kjhealy/nycbuildxwalks/actions/workflows/R-CMD-check.yaml)
+[![R-universe
+version](https://kjhealy.r-universe.dev/nycbuildxwalks/badges/version)](https://kjhealy.r-universe.dev/nycbuildxwalks)
 <!-- badges: end -->
 
 nycbuildxwalks downloads official New York City geographic boundary data
@@ -48,6 +50,19 @@ with:
 # install.packages("pak")
 pak::pak("kjhealy/nycbuildxwalks")
 ```
+
+Alternatively, install this package from my
+[r-universe](https://kjhealy.r-universe.dev):
+
+``` r
+install.packages(
+  "nycbuildxwalks",
+  repos = c("https://kjhealy.r-universe.dev", "https://cloud.r-project.org")
+)
+```
+
+Including `https://cloud.r-project.org` ensures dependencies on CRAN are
+resolved automatically.
 
 ## Usage
 
