@@ -1,6 +1,22 @@
 # Changelog
 
-## nycbuildxwalks (development version)
+## nycbuildxwalks 0.0.0.9001
+
+- Boundary layers labelled with a geographic CRS but holding coordinates
+  outside longitude/latitude ranges are now treated as EPSG:2263 (NY
+  State Plane, US feet), with a warning, before reprojection. The NYC
+  Open Data Historic Districts GeoJSON (`hd`) currently has State Plane
+  coordinates labelled as EPSG:4326, which previously produced
+  near-global polygons and made
+  [`build_crosswalks()`](https://kjhealy.github.io/nycbuildxwalks/reference/build_crosswalks.md)
+  fail with a GEOS topology error.
+
+- Invalid geometries in the combined boundaries are now repaired with
+  GEOS in planar coordinates rather than with s2 on the sphere, matching
+  the original Python tool. s2 repair could turn a polygon with reversed
+  ring orientation into its complement.
+
+## nycbuildxwalks 0.0.0.9000
 
 - Initial package creation. Port of the Python NYC geography crosswalks
   tool by Nathan Storey at MODA-NYC.

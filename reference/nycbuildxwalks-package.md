@@ -40,4 +40,7 @@ Useful links:
 
 Authors:
 
+- Kieran Healy <kjhealy@gmail.com>
+  ([ORCID](https://orcid.org/0000-0001-9114-981X))
+
 - Nathan Storey (Author of the original Python implementation)

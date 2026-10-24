@@ -37,6 +37,7 @@ You can install the development version of nycbuildxwalks from GitHub
 with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("kjhealy/nycbuildxwalks")
 ```
@@ -45,6 +46,7 @@ Alternatively, install this package from my
 [r-universe](https://kjhealy.r-universe.dev):
 
 ``` r
+
 install.packages(
   "nycbuildxwalks",
   repos = c("https://kjhealy.r-universe.dev", "https://cloud.r-project.org")
@@ -61,6 +63,7 @@ The main entry point is
 which orchestrates the full pipeline:
 
 ``` r
+
 library(nycbuildxwalks)
 
 # Full run: download boundaries and build all crosswalks
@@ -76,6 +79,7 @@ run_dir <- make_run(max_primaries = 2, primary_only = c("cd", "pp"))
 You can also run individual steps:
 
 ``` r
+
 # Step 1: Download and combine boundaries
 run_dir <- download_all_boundaries()
 

@@ -14,13 +14,13 @@ Source:
 [`DESCRIPTION`](https://github.com/kjhealy/nycbuildxwalks/blob/main/DESCRIPTION)
 
 Healy K, Storey N (2026). *nycbuildxwalks: Build Geographic Crosswalk
-Tables for New York City Boundaries*. R package version 0.0.0.9000,
+Tables for New York City Boundaries*. R package version 0.0.0.9001,
 <https://kjhealy.github.io/nycbuildxwalks/>.
 
     @Manual{,
       title = {nycbuildxwalks: Build Geographic Crosswalk Tables for New York City Boundaries},
       author = {Kieran Healy and Nathan Storey},
       year = {2026},
-      note = {R package version 0.0.0.9000},
+      note = {R package version 0.0.0.9001},
       url = {https://kjhealy.github.io/nycbuildxwalks/},
     }
