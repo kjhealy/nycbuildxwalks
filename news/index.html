@@ -35,6 +35,8 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.0.9001" id="nycbuildxwalks-0009001">nycbuildxwalks 0.0.0.9001<a class="anchor" aria-label="anchor" href="#nycbuildxwalks-0009001"></a></h2>
 <ul><li><p>Boundary layers labelled with a geographic CRS but holding coordinates outside longitude/latitude ranges are now treated as EPSG:2263 (NY State Plane, US feet), with a warning, before reprojection. The NYC Open Data Historic Districts GeoJSON (<code>hd</code>) currently has State Plane coordinates labelled as EPSG:4326, which previously produced near-global polygons and made <code><a href="../reference/build_crosswalks.html">build_crosswalks()</a></code> fail with a GEOS topology error.</p></li>
+<li><p>The Business Improvement Districts layer (<code>bid</code>) now takes feature names from <code>f_all_bi_2</code>. NYC Open Data changed the dataset’s schema, and the previous name column, <code>f_all_bids</code>, now holds numeric codes (<code>0.0</code> for several districts), so distinct districts were merged when dissolving by name.</p></li>
+<li><p><code><a href="../reference/process_dataset.html">process_dataset()</a></code> now warns when every value of a layer’s name column looks like a decimal number, a sign that the source schema has changed.</p></li>
 <li><p>Invalid geometries in the combined boundaries are now repaired with GEOS in planar coordinates rather than with s2 on the sphere, matching the original Python tool. s2 repair could turn a polygon with reversed ring orientation into its complement.</p></li>
 </ul></div>
     <div class="section level2">
