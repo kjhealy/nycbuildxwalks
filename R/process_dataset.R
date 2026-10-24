@@ -283,6 +283,13 @@ has_projected_coords <- function(gdf) {
     any(abs(bbox[c("ymin", "ymax")]) > 90)
 }
 
+# TRUE if every non-missing name is a decimal number such as "22.0", the
+# sign of a numeric code column rather than a name column.
+names_look_numeric <- function(x) {
+  x <- x[!is.na(x)]
+  length(x) > 0 && all(grepl("^-?[0-9]+\\.[0-9]+$", x))
+}
+
 standardize_columns <- function(gdf, dataset_id, name_col_key, name_alt_key) {
   tryCatch(
     {
@@ -299,6 +306,18 @@ standardize_columns <- function(gdf, dataset_id, name_col_key, name_alt_key) {
 
       if (!is.na(name_alt_key) && name_alt_key %in% names(gdf)) {
         result$name_alt <- as.character(gdf[[name_alt_key]])
+      }
+
+      if (names_look_numeric(result$name_col)) {
+        cli::cli_warn(
+          c(
+            "  Every value of '{name_col_key}' in {dataset_id} looks like a
+              decimal number, not a name.",
+            "i" = "The source schema may have changed; check {.field name_col}
+              in {.code nyc_datasets}. Features are dissolved by name, so
+              shared codes merge distinct features."
+          )
+        )
       }
 
       result

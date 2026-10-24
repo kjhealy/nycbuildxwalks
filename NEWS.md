@@ -7,6 +7,15 @@
   labelled as EPSG:4326, which previously produced near-global polygons and
   made `build_crosswalks()` fail with a GEOS topology error.
 
+* The Business Improvement Districts layer (`bid`) now takes feature names
+  from `f_all_bi_2`. NYC Open Data changed the dataset's schema, and the
+  previous name column, `f_all_bids`, now holds numeric codes (`0.0` for
+  several districts), so distinct districts were merged when dissolving by
+  name.
+
+* `process_dataset()` now warns when every value of a layer's name column
+  looks like a decimal number, a sign that the source schema has changed.
+
 * Invalid geometries in the combined boundaries are now repaired with GEOS in
   planar coordinates rather than with s2 on the sphere, matching the original
   Python tool. s2 repair could turn a polygon with reversed ring orientation

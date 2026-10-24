@@ -9,7 +9,7 @@ cc,City Council Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/
 nycongress,Congressional Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/congressional/nycg_25a.zip,CongDist,,dcp_zip
 sa,State Assembly Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/state-assembly/nyad_25a.zip,AssemDist,,dcp_zip
 ss,State Senate Districts,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/state-senate/nyss_25a.zip,StSenDist,,dcp_zip
-bid,Business Improvement Districts,https://data.cityofnewyork.us/resource/7jdm-inj8.geojson,f_all_bids,,opendata_geojson
+bid,Business Improvement Districts,https://data.cityofnewyork.us/resource/7jdm-inj8.geojson,f_all_bi_2,,opendata_geojson
 nta,Neighborhood Tabulation Areas,https://s-media.nyc.gov/agencies/dcp/assets/files/zip/data-tools/bytes/neighborhood-tabulation-areas/nynta2020_25a.zip,NTAName,NTA2020,dcp_zip
 zipcode,Modified ZIP Code Tabulation Areas,https://data.cityofnewyork.us/api/geospatial/pri4-ifjk?method=export&format=Shapefile,modzcta,,opendata_shapefile
 hd,Historic Districts,https://data.cityofnewyork.us/resource/skyk-mpzq.geojson,area_name,,opendata_geojson

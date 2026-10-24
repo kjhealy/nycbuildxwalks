@@ -58,6 +58,29 @@ test_that("standardize_columns warns on missing column", {
   expect_true(all(is.na(result$name_col)))
 })
 
+test_that("standardize_columns warns when names are numeric codes", {
+  gdf <- sf::st_sf(
+    code = c("22.0", "0.0", "0.0"),
+    geometry = sf::st_sfc(
+      sf::st_point(c(0, 0)),
+      sf::st_point(c(1, 1)),
+      sf::st_point(c(2, 2))
+    ),
+    crs = 4326
+  )
+  expect_warning(
+    nycbuildxwalks:::standardize_columns(gdf, "bid", "code", NA),
+    "decimal number"
+  )
+})
+
+test_that("names_look_numeric distinguishes codes from names", {
+  expect_true(nycbuildxwalks:::names_look_numeric(c("22.0", "0.0", NA)))
+  expect_false(nycbuildxwalks:::names_look_numeric(c("101", "102")))
+  expect_false(nycbuildxwalks:::names_look_numeric(c("Third Avenue", "1.0")))
+  expect_false(nycbuildxwalks:::names_look_numeric(NA_character_))
+})
+
 test_that("reproject_to_4326 transforms from 2263", {
   gdf <- sf::st_sf(
     x = 1,
