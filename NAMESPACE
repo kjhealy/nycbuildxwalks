@@ -9,5 +9,7 @@ export(make_run)
 export(process_dataset)
 export(resolve_dcp_cycle)
 export(union_by_name)
-importFrom(rlang,"%||%")
-importFrom(rlang,.data)
+importFrom(rlang,
+  "%||%",
+  .data
+)

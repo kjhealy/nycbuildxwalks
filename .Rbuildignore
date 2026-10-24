@@ -6,3 +6,4 @@
 ^NEWS\.md$
 ^.DS_Store$
 ^\.github$
+^README\.html$

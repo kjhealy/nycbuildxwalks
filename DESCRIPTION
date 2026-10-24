@@ -1,6 +1,6 @@
 Package: nycbuildxwalks
 Title: Build Geographic Crosswalk Tables for New York City Boundaries
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: c(
     person("Kieran", "Healy", , "kjhealy@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0001-9114-981X")),
@@ -21,7 +21,6 @@ URL: https://kjhealy.github.io/nycbuildxwalks/,
 BugReports: https://github.com/kjhealy/nycbuildxwalks/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Depends:
     R (>= 4.1.0)
 Imports:
@@ -41,3 +40,4 @@ Suggests:
 Config/testthat/edition: 3
 LazyData: true
 LazyDataCompression: xz
+Config/roxygen2/version: 8.1.1

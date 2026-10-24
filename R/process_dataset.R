@@ -246,6 +246,16 @@ reproject_to_4326 <- function(gdf, dataset_id, url) {
         )
         sf::st_crs(gdf) <- default_crs
       }
+      if (has_projected_coords(gdf)) {
+        cli::cli_warn(
+          c(
+            "  {dataset_id} is labelled with a geographic CRS but has
+              coordinates outside longitude/latitude ranges.",
+            "i" = "Treating them as EPSG:2263 (NY State Plane, US feet)."
+          )
+        )
+        gdf <- sf::st_set_crs(sf::st_set_crs(gdf, NA), 2263)
+      }
       if (sf::st_crs(gdf) != sf::st_crs(4326)) {
         cli::cli_inform("  Reprojecting {dataset_id} to EPSG:4326")
         gdf <- sf::st_transform(gdf, 4326)
@@ -259,6 +269,18 @@ reproject_to_4326 <- function(gdf, dataset_id, url) {
       NULL
     }
   )
+}
+
+# A layer whose CRS says longitude/latitude but whose coordinates are far
+# outside those ranges (e.g. NY State Plane feet from some NYC Open Data
+# GeoJSON exports).
+has_projected_coords <- function(gdf) {
+  if (!isTRUE(sf::st_is_longlat(gdf))) {
+    return(FALSE)
+  }
+  bbox <- sf::st_bbox(gdf)
+  any(abs(bbox[c("xmin", "xmax")]) > 180) ||
+    any(abs(bbox[c("ymin", "ymax")]) > 90)
 }
 
 standardize_columns <- function(gdf, dataset_id, name_col_key, name_alt_key) {

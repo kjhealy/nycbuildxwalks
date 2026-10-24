@@ -132,16 +132,27 @@ combine_and_validate <- function(gdfs) {
 
   combined <- do.call(rbind, gdfs)
 
-  invalid <- !sf::st_is_valid(combined)
+  make_valid_planar(combined)
+}
+
+# Check and repair geometries with GEOS in planar coordinates, as the
+# original Python tool (shapely) does. With s2, sf repairs polygons on the
+# sphere, which can turn a polygon with reversed ring orientation into its
+# complement (a near-global polygon).
+make_valid_planar <- function(gdf) {
+  s2_state <- sf::sf_use_s2()
+  suppressMessages(sf::sf_use_s2(FALSE))
+  on.exit(suppressMessages(sf::sf_use_s2(s2_state)), add = TRUE)
+
+  invalid <- !sf::st_is_valid(gdf)
   if (any(invalid, na.rm = TRUE)) {
     n_invalid <- sum(invalid, na.rm = TRUE)
     cli::cli_inform(
       "Fixing {n_invalid} invalid geometr{?y/ies} with st_make_valid()"
     )
-    combined <- sf::st_make_valid(combined)
+    gdf <- sf::st_make_valid(gdf)
   }
-
-  combined
+  gdf
 }
 
 save_combined_output <- function(combined, run_dir, processed_dir) {

@@ -68,6 +68,39 @@ test_that("reproject_to_4326 transforms from 2263", {
   expect_equal(sf::st_crs(result)$epsg, 4326L)
 })
 
+test_that("reproject_to_4326 relabels State Plane coordinates tagged as 4326", {
+  gdf <- sf::st_sf(
+    x = 1,
+    geometry = sf::st_sfc(sf::st_point(c(981219, 200000)), crs = 4326)
+  )
+
+  expect_warning(
+    result <- nycbuildxwalks:::reproject_to_4326(gdf, "test", "x.geojson"),
+    "EPSG:2263"
+  )
+  expect_equal(sf::st_crs(result)$epsg, 4326L)
+  coords <- sf::st_coordinates(result)
+  expect_equal(unname(coords[1, "X"]), -74, tolerance = 0.01)
+  expect_equal(unname(coords[1, "Y"]), 40.7, tolerance = 0.01)
+})
+
+test_that("has_projected_coords only flags out-of-range longlat data", {
+  lonlat <- sf::st_sf(
+    x = 1,
+    geometry = sf::st_sfc(sf::st_point(c(-74, 40.7)), crs = 4326)
+  )
+  feet_as_lonlat <- sf::st_set_crs(
+    sf::st_sf(x = 1, geometry = sf::st_sfc(sf::st_point(c(981219, 200000)))),
+    4326
+  )
+  feet <- sf::st_set_crs(feet_as_lonlat, NA) |>
+    sf::st_set_crs(2263)
+
+  expect_false(nycbuildxwalks:::has_projected_coords(lonlat))
+  expect_true(nycbuildxwalks:::has_projected_coords(feet_as_lonlat))
+  expect_false(nycbuildxwalks:::has_projected_coords(feet))
+})
+
 test_that("try_local_fallback returns NULL when no fallback exists", {
   result <- nycbuildxwalks:::try_local_fallback("nonexistent", tempdir())
   expect_null(result)
